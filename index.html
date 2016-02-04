@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+
+    <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.min.css">
+    <link rel="stylesheet" href="normalizer.css">
+    <link rel="stylesheet" href="formStyle.css">
+    <script src="jquery-2.2.0.min.js"></script>
+    <script src="jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+    <style>
+        body{
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            padding: 20px;
+        }
+        .wrapper{
+            background: white;
+            width: 1000px;
+            margin: 0 auto;
+            color: #22bfee;
+            border: 1px solid silver;
+        }
+
+        #feedback { font-size: 1.4em; }
+        #selectable .ui-selecting { background: #FECA40; }
+        #selectable .ui-selected { background: #F39814; color: white; }
+        #selectable { list-style-type: none; margin: 0; padding: 2px;}
+        #selectable li { margin: 4px; padding: 0.4em; font-size: 1.4em; color: #22bfee; text-align: center}
+
+
+        #excursions{
+            border: 1px solid red;
+            width: 200px;
+            display: inline-block;
+            float: left;
+        }
+        h1{
+
+             text-align: center;
+             font-size: 40px;
+
+        }
+        h2{
+
+            text-align: center;
+            font-size: 27px;
+
+        }
+        #myExcursions{
+            margin-left: 20px;
+            width: 200px;
+            border: 1px solid rebeccapurple;
+            display: inline-block;
+            float: left;
+
+        }
+
+        #dates{
+            margin-left: 20px;
+            display: inline-block;
+            float: left;
+            border: 1px solid red;
+        }
+        .price{
+            font-style: italic;
+            font-size: 12px;
+            text-align: right;
+            color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+<h1> Booking </h1>
+<div class="wrapper">
+
+    <aside id="excursions">
+        <h2>All excursions</h2>
+        <ol id="selectable">
+            <li class="ui-widget-content">
+                <p>Hawaii Islands</p>
+                <p class="price">price per day 150$</p>
+            </li>
+            <li class="ui-widget-content">
+                <p>Cuba</p>
+                <p class="price">price per day 40$</p>
+            </li>
+            <li class="ui-widget-content">
+                <p>Bermudi</p>
+                <p class="price">price per day 300$</p>
+            </li>
+            <li class="ui-widget-content">
+                <p>Puerto Rico</p>
+                <p class="price">price per day 100$</p>
+            </li>
+            <li class="ui-widget-content">
+                <p>Indonesia</p>
+                <p class="price">price per day 110$</p>
+            </li>
+            <li class="ui-widget-content">
+                <p>Panama</p>
+                <p class="price">price per day 90$</p>
+            </li>
+            <li class="ui-widget-content">
+                <p>Rio de Janeiro</p>
+                <p class="price">price per day 80$</p>
+            </li>
+            <li class="ui-widget-content">
+                <p>Costa Rica</p>
+                <p class="price">price per day 95$</p>
+            </li>
+        </ol>
+    </aside>
+
+    <section id="dates">
+        <div class="toggler">
+            <div class="effect" class="ui-widget-content ui-corner-all">
+                <h3 class="ui-widget-header ui-corner-all">Enter dates</h3>
+                <form>
+                    <div class="formInputs">
+                        <label for="from">Дата на настаняване</label>
+                        <input type="text" id="from" name="from">
+                    </div>
+                    <div class="formInputs">
+                        <label for="to">Дата на напускане</label>
+                        <input type="text" id="to" name="to">
+                    </div>
+                    <button id="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="yourData">
+        <div class="toggler">
+            <div class="effect" class="ui-widget-content ui-corner-all">
+                <h3 class="ui-widget-header ui-corner-all">Reserve excursion</h3>
+                <p id="startDate"></p>
+                <p id="endDate"></p>
+                <form>
+                    <div class="formInputs">
+                        <label for="name1">First name</label>
+                        <input type="text" id="name1" name="name1">
+                    </div>
+                    <div class="formInputs">
+                        <label for="name2">Last name</label>
+                        <input type="text" id="name2" name="name1">
+                    </div>
+                    <div class="formInputs">
+                        <label for="cardNumb">Card number</label>
+                        <input type="text" id="cardNumb" name="cardNumb">
+                    </div>
+                    <div class="formInputs">
+                        <label for="ctv">ctv</label>
+                        <input type="text" id="ctv" name="ctv">
+                    </div>
+                    <button id="submitYourData">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
+    <br style="clear:both">
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    $(function() {
+
+        $( "#selectable" ).selectable();
+
+        var excursion = $('li');
+
+        excursion.click(function(e){
+            console.log('tuk! ! ! !')
+            runEffect($('#dates'))
+
+        });
+
+        $('body').on('click', function(e){
+
+            console.log(e.target);
+
+        })
+
+
+
+
+
+        // datePicker
+        $( "#from" ).datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            numberOfMonths: 3,
+            onClose: function( selectedDate ) {
+                $( "#to" ).datepicker( "option", "minDate", selectedDate );
+            }
+        });
+        $( "#to" ).datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            numberOfMonths: 3,
+            onClose: function( selectedDate ) {
+                $( "#from" ).datepicker( "option", "maxDate", selectedDate );
+            }
+        });
+
+
+
+
+        /// show the form
+
+        function runEffect(elment) {
+            var selectedEffect = 'drop';
+
+            var options = {};
+
+            if ( selectedEffect === "scale" ) {
+                options = { percent: 100 };
+            } else if ( selectedEffect === "size" ) {
+                options = {
+                    to: {
+                        width: 280,
+                        height: 185
+                    }
+                };
+            }
+
+
+            elment.show( selectedEffect, options, 500 );
+        };
+
+
+
+
+        $('#submit').on('click',function(e){
+            e.preventDefault();
+            //$( "#dates").fadeOut();
+
+            //enter validations ! ! ! ! ! !
+
+
+            runEffect($('#yourData'));
+
+
+        })
+
+
+
+        $( "#dates" ).hide();
+        $('#yourData').hide();
+
+
+    });
+</script>
+
+
+</body>
+</html>

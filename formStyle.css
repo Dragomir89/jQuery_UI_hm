@@ -1,0 +1,39 @@
+.toggler {
+
+}
+#button {
+    padding: .5em 1em;
+    text-decoration: none;
+}
+.effect {
+    width: 240px;
+    padding: 0.4em;
+    position: relative;
+}
+.effect h3 {
+    margin: 0;
+    padding: 0.4em;
+    text-align: center;
+}
+
+.formInputs{
+    width: 100px;
+}
+
+
+
+
+#yourData{
+    float: left;
+    display: inline-block;
+    margin-left: 20px;
+
+}
+#effect_02{
+    width: 240px;
+    padding: 0.4em;
+}
+input{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
