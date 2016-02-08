@@ -1,0 +1,127 @@
+body {
+  background-image: url("../images/BG.jpg");
+
+  background-size: 100%;
+  
+  font-family: "Open Sans", sans-serif;
+}
+
+.container {
+  width: 960px;
+  height: auto;
+  margin: 0 auto;
+
+
+  border-radius: 5px;
+}
+
+
+.content {
+  text-align: center;
+  color: white;
+}
+
+h3, #drop {
+  font-size: 25px;
+  line-height: 40px;
+  display: inline-block;
+  width: 100%;
+  background-color: #3cb3e7;
+  border-radius: 10px;
+  margin: 10px 0px; }
+
+input {
+  border-radius: 5px;
+  border: 1px solid #3cb3e7;
+  height: 30px; }
+
+.inputFields {
+  display: inline-block;
+  background-color: #003580;
+  border-radius: 10px; }
+
+.inputFields div {
+  float: left;
+  margin: 20px; }
+
+#holidays {
+  width: 960px;
+  display: inline-block;
+
+  border-radius: 15px;
+  height: auto;
+
+  color: #003580;
+}
+
+.draggable {
+  float: left;
+  width: 240px;
+  height: 300px;
+
+}
+
+img{
+  width: 220px;
+  height: 155px;
+}
+.info{
+  text-align: left;
+}
+#centeringDiv {
+  display: inline-block;
+  margin-top: 50px; }
+
+.holidayInfo {
+  width: 200px;
+  margin-left: 20px; }
+.price{
+  font-style: italic;
+  color: #003580;
+  font-size: 12px;
+  text-align: center;
+}
+.draggable img {
+  border: 2px solid #3cb3e7;
+}
+
+#droppable {
+  width: 960px;
+  height: 300px;
+  display: inline-block;
+  background-color: rgba(255, 0, 0, 0.4);
+  border-radius: 10px; }
+
+label{
+  display: inline-block;
+  width: 250px;
+
+}
+
+input{
+  width: 300px;
+}
+
+
+#book {
+  line-height: 40px;
+  display: inline-block;
+  width: 100%;
+  background-color: #3cb3e7;
+  border-radius: 10px;
+  margin: 10px 0px; }
+
+button {
+  margin: 20px 0px;
+  color: #00b3ee;
+}
+
+#modal {
+  display: none; }
+
+#modal-text {
+  font-size: 40px;
+  font-family: 'Lobster', cursive;
+  line-height: 80px; }
+
+/*# sourceMappingURL=styles.css.map */
